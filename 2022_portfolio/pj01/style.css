@@ -1,0 +1,1429 @@
+@charset "utf-8";
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+
+/* 전체 설정 */
+
+* {margin: 0; padding: 0;}
+ul,ol {list-style: none;}
+a {color: #555; text-decoration: none; font-family: 'Noto Sans KR', sans-serif;}
+img {vertical-align: center;}
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    /* box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; */
+}
+.width {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 60px;
+    color: blue;
+    font-weight: bold;
+}
+
+
+
+/* 헤더와 로고 설정 */
+.top {
+    width: 100%;
+    height: 100vh;
+}
+
+.header {
+    height: 350px;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 70px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 240px;
+    height: 70px;
+    transform: translateX(20px);
+}
+.logo a {}
+.logo a img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+/* 메뉴 설정 */
+.gnb {
+    width: 800px;
+    position: relative; /*서브메뉴의 부모*/
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    width: 20%;
+    box-sizing: border-box;
+}
+
+.menu a {
+    display: block;
+    height: 60px;
+
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.menu li.on a {
+    opacity: 1;
+    border-bottom: 3px solid #fff;
+}
+
+
+
+
+/* 서브메뉴 설정 */
+
+.submenu {
+    background-color: #fff;
+    width: 800px;
+    height: 200px;
+
+    position: absolute;
+    top: 60px;
+    left: 0;
+
+    overflow: hidden;
+    display: none;
+}
+
+.submenu ul {
+    padding-top: 15px;
+    box-sizing: border-box;
+    width: 20%;
+    height: 100%;
+    float: left;
+    /* border: 1px solid #fff; */
+}
+
+.submenu li {
+    margin-bottom: 10px;
+}
+
+.submenu a {
+    display: block;
+    color: #111;
+    text-align: center;
+}
+.submenu a:hover {
+    font-weight: bold;
+}
+
+.submenu ul.on {
+    background-color: #4871DF;
+}
+.submenu ul.on a {
+    color: #fff;
+}
+
+
+
+
+/* 랜딩 배경이미지 설정 */
+
+.landing_bg {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.landing_bg ul {
+    width: 100%;
+    height: 1080px;
+}
+.landing_bg li {
+    opacity: 0;
+    transition: all 1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.landing_bg li:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    background-image: url(img/landing_bg02.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.landing_bg li:nth-child(2) {
+    width: 100%;
+    height: 100%;
+    background-image: url(img/landing_bg01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.landing_bg li:nth-child(3) {
+    width: 100%;
+    height: 100%;
+    background-image: url(img/landing_bg03.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.landing_bg li:nth-child(4) {
+    width: 100%;
+    height: 100%;
+    background-image: url(img/landing_bg04.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* on일 때 배경 보이기 */
+
+.landing_bg li.on {
+    opacity: 1;
+}
+
+
+
+
+
+/* 랜딩 타이틀 부분 */
+.landing_title {
+    width: 100%;
+    height: 400px;
+    color: #fff;
+}
+
+.landing_title h2 {
+    /* background-color: chocolate; */
+    font-size: 50px;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+.landing_title li>p {
+    /* background-color: orange; */
+    font-size: 20px;
+    line-height: 1.6;
+    font-weight: normal;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+
+/* 랜딩타이틀 겹치고 포지션 위치 잡기 */
+
+.landing_title {
+}
+.landing_title ul {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.landing_title li {
+    position: absolute;
+    left: 20px;
+    top: 0%;
+    opacity: 0;
+    transition: all 1.5s;
+}
+.landing_title li.on {
+    opacity: 1;
+}
+
+/* 랜딩배경 네비게이션 버튼 */
+
+.landing_btn {
+    position: absolute;
+    top: 380px;
+    right: 50%;
+    margin-right: -680px;
+}
+.landing_btn li {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+    text-indent: -9999px;
+
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.landing_btn li.on {
+    height: 36px;
+    border-radius: 6px;
+    background-color: #4871DF;
+}
+
+
+
+
+/* 헤더 바로가기 아이콘 */
+.landing_icon {
+    width: 100%;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+}
+
+.landing_icon ul {
+    display: flex;
+    justify-content: center;
+}
+
+.landing_icon li {
+    padding: 0 20px;
+}
+
+.landing_icon a {
+    display: block;
+    text-align: center;
+}
+
+.landing_icon a:hover .img{
+    opacity: 0.8;
+}
+
+.landing_icon .img {
+    width: 100%;
+    height: 80px;
+}
+
+.landing_icon li:nth-child(1) .img {
+    background-image: url(img/landing_icon01.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.landing_icon li:nth-child(2) .img {
+    background-image: url(img/landing_icon02.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.landing_icon li:nth-child(3) .img {
+    background-image: url(img/landing_icon03.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.landing_icon li:nth-child(4) .img {
+    background-image: url(img/landing_icon04.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.landing_icon span {
+    display: block;
+    padding-top: 17px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+
+
+
+
+
+
+
+/* con01 - 공원 둘레길 코스 ------------------*/
+
+.con01 {
+    width: 100%;
+    height: 1080px;
+}
+
+.con01_title {
+    display: block;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 100px;
+}
+
+
+
+/* 둘레길코스 탭버튼 */
+.con01_btn {
+    margin-top: 53px;
+    display: flex;
+    justify-content: center;
+}
+
+.con01_btn li {
+    margin: 0px 18px;
+    display: block;
+    padding: 8px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4871DF;
+    border-radius: 80px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid #4871DF;
+}
+
+.con01_btn li:hover {
+    background-color: #4871DF;
+    color: #fff;
+}
+
+.con01_btn li.on {
+    background-color: #4871DF;
+    color: #fff;
+}
+
+
+
+/* 둘레길코스 이미지 겹쳐놓기 */
+
+.con01_img {
+    width: 62.5vmax;
+    height: 33vmax;
+    max-width: 1200px;
+    max-height: 620px;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1.2s ease;
+}
+
+.con01_img.show {
+    opacity: 1;
+    transform: translate(0px);
+}
+
+.con01_img li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.con01_img li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.con01_img .img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.con01_img img {
+    width: 100%;
+    height: auto;
+}
+
+.con01_img .txt {
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background: linear-gradient(to top, #4871DF, transparent);
+    border-radius: 0 0 30px 30px;
+    padding: 40px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.con01_img .txt span:nth-child(1) {
+    font-size: 24px;
+    line-height: 1.8;
+    text-align: center;
+    color: #4871DF;
+    font-weight: bold;
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+
+.con01_img .txt span:nth-child(2) {
+    font-size: 24px;
+    font-weight: normal;
+    color: #fff;
+}
+
+
+
+/* on일 때 둘레길 이미지 보이기 */
+
+.con01_img li.on {
+    opacity: 1;
+}
+
+
+
+
+/* con02와 con03 뒤에 배경이미지 */
+.bg_middle {
+    width: 100%;
+    height: 1400px;
+    background-image: url(img/bg_middle.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.bg_middle:after {
+    content: "";
+    display: block;
+    clear: both;
+
+}
+
+
+
+
+
+/* con02 - 수피아 소개 ------------------*/
+
+.con02 {
+    /* background-color: bisque; */
+    width: 100%;
+    height: 60%;
+}
+
+
+
+/* 수피아 이미지와 텍스트부분 나누기 */
+.con02 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.con02_img {
+    width: 50%;
+    height: 100%;
+    /* background-color: rebeccapurple; */
+}
+
+.con02_txt {
+    width: 50%;
+    /* background-color: purple; */
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1.2s ease;
+}
+
+.con02_txt.show {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+
+
+/* 수피아 이미지 겹쳐놓기 */
+
+.con02_img {
+    position: relative;
+}
+
+.con02_img li {
+    width: 100%;
+    height: 600px;
+
+    border-radius: 0 600px 600px 0;
+    box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.5) inset;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -300px;
+
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.con02_img li:nth-child(1) {
+    background-image: url(img/supia01.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center right;
+}
+
+.con02_img li:nth-child(2) {
+    background-image: url(img/supia02.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center right;
+}
+
+.con02_img li:nth-child(3) {
+    background-image: url(img/supia03.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center right;
+}
+
+.con02_img li:nth-child(4) {
+    background-image: url(img/supia04.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center right;
+}
+
+
+.con02_img li.on {
+    opacity: 1;
+}
+
+
+
+/* con02 - 텍스트부분 */
+
+.con02_txt {
+    padding-left: 90px;
+    box-sizing: border-box;
+
+}
+
+.con02_title {
+    /* background-color: darkturquoise; */
+    width: 630px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.con02_title h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.con02 .txt {
+    /* background-color: blue; */
+    width: 500px;
+    margin-top: 60px;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 35px;
+}
+
+
+/* con02 - 링크버튼 */
+.con02 .linkBtn {
+    display: flex;
+    margin-top: 100px;
+}
+
+.con02 .linkBtn li {
+    border: 2px solid #4871DF;
+    border-radius: 900px;
+    margin-right: 26px;
+    width: 220px;
+    height: 50px;
+    transition: all 0.2s;
+}
+
+.con02 .linkBtn a {
+    display: block;
+    padding-top: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4871DF;
+    text-align: center;
+}
+
+.con02 .linkBtn li:hover {
+    background-color: #4871DF;
+}
+
+.con02 .linkBtn li:hover a {
+    color: #fff;
+}
+
+
+
+
+
+
+/* con03 - 진행중인 프로그램 -------------------- */
+
+.con03 {
+    width: 100%;
+    height: 40%;
+}
+
+/* 각 요소 별 간격주기 */
+.con03_title {
+    width: 100%;
+    height: auto;
+    padding-top: 70px;
+}
+
+.con03 .slide {
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1.2s ease;
+}
+
+.con03 .slide.show {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.con03 .slide .btn {
+    margin-right: 70px;
+}
+
+
+
+/* con03 - 타이틀 설정 */
+.con03_title {
+    text-align: center;
+    color: #333333;
+}
+
+.con03_title h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.con03_title p {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 10px;
+
+}
+
+/* 더보기 버튼 */
+.con03_title {
+    position: relative;
+}
+.con03 .moreBtn {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+
+    color: #707070;
+}
+
+
+
+/* con03 - 프로그램 슬라이드 */
+
+/* 버튼과 프로그램들 가로 정렬 */
+.con03 .slide {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* 이미지와 좌우버튼 화면위치 중앙으로 고정하기 */
+.con03 {
+    position: relative;
+    /* background-color: aqua; */
+}
+
+.con03 .slide {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    margin-left: -720px;
+}
+
+
+/* 좌우 버튼 */
+.con03 .slide .btn {
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+    height: 72px;
+    margin-right: 50px;
+}
+
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 0,'wght' 200,'GRAD' 800;
+  font-size: 72px;
+  color: #4871DF;
+  transition: all 0.1s;
+}
+.material-symbols-rounded:hover {
+    font-variation-settings: 'FILL' 1,'wght' 200,'GRAD' 800;
+    color: #4871DF;
+    cursor: pointer;
+}
+
+/* 프로그램 오브젝트 만들기 */
+
+/* 이미지부분 */
+.con03 #trailer {
+    /* background-color: aquamarine; */
+    width: 2530px;
+    display: flex;
+}
+
+.con03 #trailer li {
+    /* background-color: #4871DF; */
+    width: 290px;
+    margin-right: 30px;
+    box-shadow: 8px 8px 20px 0px rgba(0, 0, 0, 0.30);
+    border-radius: 30px;
+}
+
+.con03 #trailer a {}
+
+.con03 #trailer .img {
+    width: 290px;
+    height: 290px;
+    border-radius: 30px 30px 0 0;
+    overflow: hidden;
+}
+
+.con03 #trailer img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+/* 텍스트 부분 */
+.con03 .slide .txt {
+    width: 290px;
+    height: 130px;
+    background-color: #fff;
+    border-radius: 0 0 30px 30px;
+    color: #333333;
+    transition: all 0.2s;
+}
+
+.con03 .slide h3 {
+    font-size: 26px;
+    font-weight: bold;
+    padding: 28px 0 0 28px;
+}
+
+.con03 .slide .date {
+    display: flex;
+    padding: 0 0 0 28px;
+}
+
+.con03 .slide time {
+    margin-left: 10px;
+}
+
+
+/* 마우스 오버 시 트레일러 색 변화 */
+.con03 #trailer li:hover .txt {
+    background-color: #4871DF;
+    color: #fff;
+}
+
+
+/* 트레일러 움직임 구현 */
+.con03 .container {
+    width: 2530px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.con03 .slide #trailer {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -210px;
+    transition: all 0.4s;
+}
+
+
+
+
+
+
+
+
+
+/* con04 - 공지사항 및 이벤트배너 -------------*/
+
+/* 공지사항과 배너 가로 정렬 */
+.con04 {
+    /* background-color: antiquewhite; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 474px;
+    padding-top: 350px;
+}
+
+/* 크기 및 테두리 설정 */
+.con04_notice {
+    width: 702px;
+    height: 474px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin-right: 37px;
+    box-sizing: border-box;
+    padding: 75px 60px;
+    background-color: #fff;
+}
+
+
+/* 공지사항 탭버튼 설정 */
+.con04_notice .subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.con04 .tabBtn {
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.con04 .tabBtn p {
+    margin-right: 34px;
+    line-height: 120%;
+    cursor: pointer;
+}
+
+.con04 .tabBtn p:hover {
+    color: #4871DF;
+    text-decoration: underline;
+    text-underline-position: under;
+    opacity: 0.8;
+}
+
+.con04_notice .moreBtn {}
+
+
+/* 공지사항 탭버튼 on일 때 설정 */
+.con04_notice .tabBtn p.on {
+    color: #4871DF;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+
+
+/* 공지사항 텍스트 설정 */
+.con04_notice ul {
+    color: #333;
+    font-size: 20px;
+    margin-top: 20px;
+    
+    display: none;
+}
+
+.con04_notice ul li {}
+
+.con04_notice ul a {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: dashed #ddd 1px;
+
+    padding: 14px 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.con04_notice ul a:hover p {
+    opacity: 0.8;
+}
+
+.con04_notice ul p {}
+
+.con04_notice ul time {
+    color: #999;
+    font-size: 18px;
+}
+
+
+
+/* 탭바를 위해 채용공고 포지션 설정 */
+
+.con04_notice {
+    position: relative;
+}
+.con04_notice .txt02 {
+    /* background-color: #4871DF; */
+    /* opacity: 0.5; */
+    width: 577px;
+
+    position: absolute;
+    top: 104px;
+    left: 60px;
+}
+
+/* 탭버튼 누르면 텍스트 나타내기 */
+.con04_notice ul.on {
+    display: block;
+}
+
+
+
+
+
+
+
+
+/* con04 - 이벤트 배너 설정 */
+
+.con04_event {
+    width: 702px;
+    height: 474px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.con04_event .slideImg {
+    width: 100%;
+    height: 100%;
+}
+
+.con04_event .slideImg li {
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.con04_event .slideImg li:nth-child(1){z-index: 3;}
+.con04_event .slideImg li:nth-child(2){z-index: 2;}
+.con04_event .slideImg li:nth-child(3){z-index: 1;}
+
+
+.con04_event .slideImg a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.con04_event .slideImg img {
+    width: auto;
+    height: 100%;
+}
+
+
+
+/* 이벤트 배너 네비게이션 버튼 설정 */
+
+.con04_event {
+    position: relative;
+}
+
+.event_btn {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -24px;
+    z-index: 4;
+}
+.event_btn li {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    margin: 0 6px;
+    border-radius: 50%;
+    text-indent: -9999px;
+    transition: all 0.3s;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.event_btn li.on {
+    width: 30px;
+    border-radius: 6px;
+    background-color: #4871DF;
+}
+
+
+
+
+
+
+/* con05 - 인스타그램 이미지들 */
+
+.con05 {
+    width: 100%;
+    padding-top: 200px;
+}
+
+.con05_title {
+    text-align: center;
+}
+
+.con05_title h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+.con05_title p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+.con05_img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.con05_img ul:nth-child(1) {
+    width: 100%;
+    margin-top: 78px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+
+
+.con05_img li {
+    width: 220px;
+    height: 220px;
+
+    border-radius: 10px;
+    margin: 7px;
+
+    overflow: hidden;
+
+    /* transition: all 1.2s ease; */
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.con05_img li.show {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.con05_img li:hover img{
+    transform: scale(1.1) rotate(5deg);
+}
+
+.con05_img img {
+    width: 100%;
+    height: auto;
+    transition: all 0.8s;
+}
+
+
+/* con05 - 클릭&다운 아이콘 */
+
+/* .con05 {
+    position: relative;
+}
+.con05_icon {
+    background-color: yellow;
+    font-size: 40px;
+    font-weight: lighter;
+    cursor: pointer;
+
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    margin-left: -30px;
+}
+.con05_icon i {
+    transform: scaleX(2);
+}
+
+
+@keyframes ani {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+} */
+
+
+
+
+/* con06 - 구글지도 */
+
+.con06 {
+    width: 100%;
+    height: 940px;
+    position: relative;
+    margin-top: 200px;
+}
+
+.con06 .map {
+    /* opacity: 0.3; */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+
+
+/* 오시는길 텍스트 설정 */
+
+.con06 {
+    position: relative;
+}
+
+.map_txt {
+    width: 553px;
+    height: 680px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 2px 10px 20px 1px rgba(0, 0, 0, 0.30);
+    color: #333;
+
+    padding-top: 87px;
+    padding-left: 70px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    margin-left: 167px;
+
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1.2s ease;
+}
+
+.map_txt.show {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.map_txt li {
+    margin-bottom: 50px;
+}
+
+.map_txt strong {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.map_txt p {
+    font-size: 18px;
+    font-weight: normal;
+    word-spacing: -1px;
+    margin-bottom: 5px;
+
+}
+
+.map_txt em {
+    font-style: normal;
+    font-weight: bold;
+}
+
+
+
+
+/* 하단 푸터 -------------------- */
+
+footer {
+    width: 100%;
+    height: 600px;
+    background-color: #333333;
+    color: #fff;
+    padding-top: 120px;
+    box-sizing: border-box;
+}
+
+/* 푸터메뉴와 sns아이콘 정렬 */
+footer .menu_sns {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+
+/* 푸터의 메뉴 설정 */
+
+.footer_menu {
+    /* background-color: yellowgreen; */
+    display: flex;
+    width: 70%;
+    height: 220px;
+}
+
+.footer_menu ul {
+    width: 20%;
+}
+
+.footer_menu li {
+    margin-bottom: 10px;
+}
+
+.footer_menu ul li:nth-child(1) a {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer_menu a {
+    font-size: 17px;
+    color: #fff;
+}
+
+
+
+/* 푸터의 sns 아이콘 설정 */
+
+.footer_sns {
+    /* background-color: gray; */
+    width: 30%;
+    height: 70px;
+}
+
+.footer_sns ul {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_sns li {
+    width: 20%;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.footer_sns a {
+    color: #fff;
+    text-align: center;
+}
+
+.footer_sns div {
+    /* background-color: blueviolet; */
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    margin-bottom: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footer_sns img {
+    width: 100%;
+    height: auto;
+}
+
+.footer_sns p {
+    /* background-color: aquamarine; */
+}
+
+
+
+/* 푸터하단 로고와 카피라이트 */
+
+.copyright {
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.copyright .logo {
+    width: 30%;
+    height: 100%;
+    background-image: url(img/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center left;
+    text-indent: -9999px;
+}
+
+.copyright p {
+    width: 70%;
+}
+
+
+
+/* 전체 가로 제한------------------------------- */
+
+body {
+    overflow-x: hidden;
+}
+
+@media (min-width:1460px) {
+
+    .top,
+    .landing_title,
+    .con03_title,
+    .con04,
+    .con05,
+    .footer_inner {
+        width: 1440px;
+        margin: 0 auto;
+    }
+
+}
