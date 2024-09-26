@@ -1,1 +1,1 @@
-URL : https://minjujo119.github.io/Portfolio/index.html
+URL : https://minjujo119.github.io/portfolio_2022/index.html
